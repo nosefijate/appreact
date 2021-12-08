@@ -1,5 +1,6 @@
+import Header from "./componentes/navBar.js"
 function App (){
     return 
-    <header></header>
+    Header
 }
 export default App
