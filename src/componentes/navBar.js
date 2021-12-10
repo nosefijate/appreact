@@ -1,4 +1,4 @@
-function Header (){
+const Header = () =>{
     return (
     <header>
         <div>
@@ -23,8 +23,13 @@ function Header (){
                                 <a href="#">Carrito</a>
                             </li>
                         </ul> 
+                        <span className="material-icons">
+                            shopping_cart
+                        </span>
                     </div> 
                 </nav>
     </header>
+    
 )};
+
 export default Header
