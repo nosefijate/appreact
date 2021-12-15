@@ -5,7 +5,7 @@ function App (){
     return(
         <>
         < Header></Header>
-        <ItemListConteiner/>
+        <ItemListConteiner lista="Lista" />
         </>
     )}
 export default App
