@@ -3,9 +3,9 @@ import ItemCount from "./ItemCount"
 import ItemList from "./ItemList"
 
 const productosI =[
-    {nombre:"vino1", precio: "$100", img:"x"},
-    {nombre: "vino2", precio:"150", img: "y"},
-    {nombre: "vino3", precio: "500", img: "z"},
+    {id:1, nombre:"vino1", precio: "$100", img:"x"},
+    {id:2, nombre: "vino2", precio:"150", img: "y"},
+    {id:3, nombre: "vino3", precio: "500", img: "z"},
 
 ]
 
