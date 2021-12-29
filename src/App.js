@@ -1,13 +1,18 @@
 import Header from "./componentes/navBar.js"
-import ItemListConteiner from "./componentes/ItemListConteiner.js"
-import {BrowserRouter, Routes, Route} from "react-router-dom"
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
 import "./estilo.scss"
+import ItemListContainer from "./componentes/ItemListConteiner.js"
+import ItemDetailConteiner from "./componentes/ItemDetailConteiner.js"
 function App () {
     return(
-        <BrowserRouter>
-            < Header></Header>
-            <ItemListConteiner lista="Lista" />
-        </BrowserRouter>
+        <div className="App">
+            <Router>
+                <Routes>
+                    <Route path="/" greeting="Bienvenido" element={ItemListContainer} />
+                    <Route path="/item/:id" element={ItemDetailConteiner} />
+                </Routes>
+            </Router>
+        </div>
     )}
 
 export default App

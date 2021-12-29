@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import ItemCount from "./ItemCount"
 import ItemList from "./ItemList"
+import { useParams } from "react-router-dom"
 
 const productosI =[
     {id:1, nombre:"vino1", precio: "$100", img:"x"},
@@ -11,14 +12,10 @@ const productosI =[
 
 const ItemListContainer = ({lista}) => {
     let [produs,setLista]=([])
-
-    const [cant, setCant] = useState (1)
-
-    const onAdd= (cant)=>{
-        setCant(cant)
-    }
+    const {id} = useParams()
 
     useEffect(()=>{
+        
         const promise = new Promise ((resolve, reject)=>{
             setTimeout(() => {
                 resolve(productosI)

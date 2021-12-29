@@ -1,25 +1,29 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import ItemDetail from "./ItemDetail"
 
+const productosI = {
+    nombre
+}
+
 const ItemDetailConteiner = ()=> {
-    let [produs,setLista]=([])
+    let [produs,setLista]= useState([])
+    const [loading, setLoad] = useState (false)
+    const {id}= useParams()
 
     useEffect(()=>{
-        const promise = new Promise ((resolve, reject)=>{
-            setTimeout(() => {
-                resolve(productosI)
-            }, 2000);
+        setLoad (true);
+        fetch(productosI)
+        .then((res) => res.json ())
+        .then((response =>{
+            setLoad(false)
+            setLista (response.data)
         })
-        promise
-
-            .then((productos) => {
-                setLista(productos)
-            })
-            .catch(() => {
-                console.log("Error")
-            })
-    },[])
-
+        .catch{(error)=>{
+            setLoad(false);
+        });
+    },[]);
+    
     return (
         <div>
             <h3>Detalle</h3>
