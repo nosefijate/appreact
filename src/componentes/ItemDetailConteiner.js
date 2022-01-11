@@ -19,10 +19,10 @@ const ItemDetailConteiner = ()=> {
             setLoad(false)
             setLista (response.data)
         })
-        .catch{(error)=>{
-            setLoad(false);
-        });
-    },[]);
+        .catch ((error) => {
+            setLoad(false)
+        })
+        )[]})
     
     return (
         <div>
