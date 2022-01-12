@@ -2,9 +2,12 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ItemDetail from "./ItemDetail"
 
-const productosI = {
-    nombre
-}
+const productosI =[
+    {id:1, nombre:"vino1", precio: "$100", img:"x"},
+    {id:2, nombre: "vino2", precio:"150", img: "y"},
+    {id:3, nombre: "vino3", precio: "500", img: "z"},
+
+]
 
 const ItemDetailConteiner = ()=> {
     let [produs,setLista]= useState([])

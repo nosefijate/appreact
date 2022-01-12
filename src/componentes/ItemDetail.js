@@ -1,9 +1,10 @@
 import ItemCount from "./ItemCount"
+import { useContext } from "./contexto"
 
 
 const ItemDetail = ({produs}) => {
     const onAdd = (cantidad)=>{
-
+        agregarAlCarrito( cantidad, producto)
     }
         return (
             <div>
