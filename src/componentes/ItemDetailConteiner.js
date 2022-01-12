@@ -25,7 +25,7 @@ const ItemDetailConteiner = ()=> {
         .catch ((error) => {
             setLoad(false)
         })
-        )[]})
+        )[id]})
     
     return (
         <div>

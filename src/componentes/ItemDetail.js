@@ -3,6 +3,9 @@ import { useContext } from "./contexto"
 
 
 const ItemDetail = ({produs}) => {
+
+    const {agregarAlCarrito} = useContext()
+
     const onAdd = (cantidad)=>{
         agregarAlCarrito( cantidad, producto)
     }

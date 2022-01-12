@@ -4,6 +4,8 @@ import "./estilo.scss"
 import CustomeProvider, {Provider} from "./contexto"
 import ItemListContainer from "./componentes/ItemListConteiner.js"
 import ItemDetailConteiner from "./componentes/ItemDetailConteiner.js"
+import Carrito from "./componentes/carrito.js"
+
 function App () {
     return(
         <CustomeProvider>
