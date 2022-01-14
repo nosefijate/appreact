@@ -10,6 +10,7 @@ const carrito = () => {
         <div>
             Soy Carrito
             {carrito.length > 0 ? (
+                <div> 
                 <ul>
                     {carrito.map((producto, indice) => {
                         return (
@@ -20,9 +21,12 @@ const carrito = () => {
                         )
                     })}
                 </ul>
+                <p>Total {} </p>
+                <button onClick={FinalizarCompra}>Finalizar compra</button>
+                </div>
             ) : <p>No hay productos en el carrito</p>}
 
-            <button onClick={FinalizarCompra}>finalizar compra</button>
+            
         </div>
     )
 }

@@ -31,9 +31,13 @@ const CustomProvider = ({children}) => {
         }
         setCantidadTotal (cantidad_total + cantidad)
     }
+    const precioCarrito = () =>{
+        
+    }  
+     
 
     const eliminarDelCarrito = (id, cantidad) => {
-        const carritocopy =[...carrito]
+        const carritocopy = [...carrito]
         let carritoFiltrado = carrito.filter(e=>(e.id)!==id)
         setCarrito(carritoFiltrado)
         setCantidadTotal(cantidad_total - cantidad)
