@@ -2,34 +2,41 @@ import { useEffect, useState } from "react"
 import ItemCount from "./ItemCount"
 import ItemList from "./ItemList"
 import { useParams } from "react-router-dom"
-
-const productosI =[
-    {id:1, nombre:"vino1", precio: "$100", img:"x"},
-    {id:2, nombre: "vino2", precio:"150", img: "y"},
-    {id:3, nombre: "vino3", precio: "500", img: "z"},
-
-]
+import { db } from "./firebase"
+import { getDocs, query, collection , where } from "firebase/firestore"
 
 const ItemListContainer = ({lista}) => {
-    let [produs,setLista]=([])
-    const {id} = useParams()
+    let [lista, setLista] = useState([])
+    const { nombre } = useParams()
 
-    useEffect(()=>{
-        
-        const promise = new Promise ((resolve, reject)=>{
-            setTimeout(() => {
-                resolve(productosI)
-            }, 2000);
-        })
-        promise
 
-            .then((productos) => {
-                setLista(productos)
-            })
-            .catch(() => {
-                console.log("Error")
-            })
-    },[])
+    useEffect(() => {
+
+        const productosCollection = collection(db, "productos")
+
+        if (nombre) {
+
+            const consulta = query(productosCollection,where("categoria","==",nombre),where("precio",">",1000))
+            getDocs(consulta)
+                .then(({ docs }) => {
+                    setLista(docs.map((doc) => ({ id: doc.id, ...doc.data() })))
+                })
+                .catch((error) => {
+                    console.log(error)
+                })
+
+        } else {
+
+            getDocs(productosCollection)
+                .then(({ docs }) => {
+                    setLista(docs.map((doc) => ({ id: doc.id, ...doc.data() })))
+                })
+                .catch((error) => {
+                    console.log(error)
+                })
+        }
+
+    }, [nombre])
 
     return (
         <div>
